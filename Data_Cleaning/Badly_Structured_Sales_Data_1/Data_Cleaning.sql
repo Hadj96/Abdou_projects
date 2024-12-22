@@ -1,9 +1,3 @@
-CREATE DATABASE salesdata_1;
-USE salesdata_1;
-CREATE TABLE sales AS SELECT * FROM sales_original;
-
--- DROP TABLE IF EXISTS sales;
-
 SELECT * FROM sales;
 
 -- ERASE NON NEEDED COLUMNS
