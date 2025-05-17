@@ -3,13 +3,8 @@
 ## Table of Contents
 1. [Abstract](#abstract)  
 2. [Objective](#objective)  
-3. [Variables](#variables)  
-4. [Segmentation Analysis](#segmentation-analysis)  
-   - [City](#city)  
-   - [Country](#country)  
-   - [Territory](#territory)  
-   - [Dealsize](#dealsize)  
-5. [Appendix](#appendix)  
+3. [Analysis](#analysis)  
+
 
 ---
 
@@ -50,7 +45,15 @@ The dataset includes a range of variables that may impact medical expenses:
 
 ## Objective
 The analysis aims to investigate how these variables influence medical costs and to address the following key questions:
-
+1. [How are medical charges distributed? ](#1-how-are-medical-charges-distributed)
+2. [How do medical charges vary across different age categories?](#2-how-do-medical-charges-vary-across-different-age-categories-teen-adult-middle-aged-senior)
+3. [What is the correlation between the number of children and charges?](#3-what-is-the-correlation-between-the-number-of-children-and-charges-correlation-0085)
+4. [How does gender impact average medical expenses?](#4-how-does-gender-impact-average-medical-expenses)
+5. [Do individuals with higher BMIs face greater medical costs?](#5-do-individuals-with-higher-bmis-face-greater-medical-costs-correlation-065)
+6. [How do average medical charges vary across BMI categories](#6-how-do-average-medical-charges-vary-across-bmi-categories-underweight-normal-overweight-obese)
+7. [What is the average cost difference between individuals categorized as ‘Obese’ and those who are ‘Not Obese’?](#7--what-is-the-average-cost-difference-between-individuals-categorized-as-obese-and-those-who-are-not-obese)
+8. [What is the correlation between age and medical expenses?](#8--what-is-the-correlation-between-age-and-medical-expenses-correlation-030)
+9. [What is the total cost contribution of smokers compared to non-smokers across the entire dataset?](#9--what-is-the-total-cost-contribution-of-smokers-compared-to-non-smokers-across-the-entire-dataset)
 ---
 
 ## Analysis
