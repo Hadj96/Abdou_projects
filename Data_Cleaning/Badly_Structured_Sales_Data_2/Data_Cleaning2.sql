@@ -1,14 +1,3 @@
-USE salesdata_1;
-CREATE TABLE sales AS SELECT * FROM sales_original;
-CREATE TABLE sales2_original AS SELECT * FROM sales2;
-
--- DROP TABLE IF EXISTS sales2_Normalized;
-
-SELECT * FROM sales2_Normalized;
-SELECT * FROM sales2;
-SELECT * FROM sales2_original;
-
-
 -- Data Normalization: The code normalizes the sales data by restructuring it into a format where each row represents a single shipping mode and segment with associated sales data.
 
 -- This table will have the normalized data
