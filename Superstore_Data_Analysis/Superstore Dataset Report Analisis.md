@@ -4,7 +4,7 @@
 This analysis explores sales, profitability, and operational trends within the Superstore dataset using Power BI. It focuses on identifying high-performing product categories and customer segments, uncovering underperforming regions and SKUs, and evaluating the impact of discounts and shipping methods on profit margins. Key visualizations and metrics guide strategic recommendations for improving profitability, optimizing product bundling, and refining discount strategies. The report is designed to support data-driven decision-making and performance optimization for retail operations.
 
 ## Dataset Description
-The Superstore dataset contains approximately 30,000 records of orders from a fictional retail company over a 4-year period (2014–2017). The dataset includes the following key fields:
+The Superstore dataset contains approximately 10,000 records of orders from a fictional retail company over a 4-year period (2014–2017). The dataset includes the following key fields:
 
 - Order and ship dates
 
@@ -38,23 +38,23 @@ This dataset is widely used for sales analytics and dashboarding practice, offer
     - Profit: +24%
       
   ![ProfitAndSalesCAGR](Graphs/ProfitAndSalesCAGR.png)
-- Total Sales: $6.82M
-    - Technology: $2.5M (37%)
-    - Office Supplies: $2.1M (31%)
-    - Furniture: $2.2M (32%)
+- Total Sales: $2.27M
+    - Technology: $835K (37%)
+    - Office Supplies: $703K (31%)
+    - Furniture: $733M (32%)
      
      ![Total Sales by Category](Graphs/TotalSalesCategory.png)
-- Total Profit: $849K
-    - Technology: $436K (51%)
-    - Office Supplies: $361K (43%)
-    - Furniture: $51K (6%)
+- Total Profit: $283K
+    - Technology: $145K (51%)
+    - Office Supplies: $120K (43%)
+    - Furniture: $17K (6%)
   
   ![Total Profit Category](Graphs/TotalSProfitCategory.png)
-- Top Performing States: California & New York (~40% of total profit)
+- Top Performing States: California & New York (~50% of total profit)
  
   ![Profitable States](<Graphs/Profitable States.png>)
 - Under-performing Regions: Central & South
-- 18.7% of sales were unprofitable, totaling a loss of $463.5K
+- 18.65% of all the sales were unprofitable, totaling a loss of $154K
  
   ![Under-Performing Regions](<Graphs/Under-Performing Regions.png>)
 
@@ -65,17 +65,17 @@ This dataset is widely used for sales analytics and dashboarding practice, offer
 
 🟢 High Profitability Subcategories:
 
-- Copiers: 20% of the total profit comes from only 1% of orders
-- Phones, Accessories, and Paper collectively drive 60% of total profit
-- Labels, Paper & Envelopes show excellent margins despite lower overall profit
+- Copiers: 20% of the total profit comes from less 1% of the orders
+- Phones, Accessories, and Paper collectively drive 40% of the total profit
+- Labels & Envelopes show excellent margins despite lower overall profit
 
   ![High Profitable Subcategories](<Graphs/High Profitable Subcategories.png>)
 
 🔴 Under-performing Subcategories:
 
-- Furniture generates 32% of sales but only 6% of profit
+- The Furniture Category generates 21% of sales but only 6% of profit
 - Tables, Bookcases, Machines, and Supplies often result in negative profit
-- Nearly 50% of total losses stem from Binders, Tables, and Machines
+- Nearly 65% of total losses stem from Binders, Tables, and Machines
   
   ![Less Profitable Subcategories](<Graphs/Less Profitable Subcategories.png>)
 
@@ -108,9 +108,9 @@ This dataset is widely used for sales analytics and dashboarding practice, offer
 ## 4. Segment & Customer Performance
 
 - Segment Share of Sales:
-    - Consumer: 3.5M (50%)
-    - Corporate: 2.1M (30%)
-    - Home Office: 1.3M (19%)
+    - Consumer: 1.15M (50%)
+    - Corporate: 700K (30%)
+    - Home Office: 430K (19%)
 - 20% of customers are unprofitable
 - Several high-revenue customers yield little or negative profit
   
@@ -126,40 +126,40 @@ This dataset is widely used for sales analytics and dashboarding practice, offer
 
 ### States with the Poorest Profit Margins:
 
-🔻 North Carolina (6th in sales overall, yet major margin issues):
+🔻 Texas: -15% Profit Margin 
 
-- Machines: −32%
-- Binders: −17%
-- Tables: −6%
+- Binders:    −162%   
+- Appliances: −255%   
+- Furnishing: -88%    
 
-🔻 Arkansas
+🔻 Ohio -22% Profit Margin 
 
-- Binders: −63%
-- Tables: −18%
+- Machines:   −131%    
+- Binders:    −73%    
+- Bookcases:  −65%    
 
-🔻 Oregon
 
-- Binders: −155%
-- Machines: −109%
+🔻 Pensylvania -13% Profit Margin 
 
-🔻 Florida
+- Machines:   −104%  
+- Binders:    −73%   
+- Bookcases:  −55%   
 
-- Binders: −17%
-- Tables: −19%
-- Supplies: −14%
 
-🔻 Connecticut
+🔻 Illinois -15% Profit margin 
 
-- Binders: −92%
-- Tables: −56%
-- Bookcases: −9%
-- These margin losses are primarily driven by Binders, Tables, and Machines
+- Appliances: −254%  
+- Binders:    −158%  
+- Furnishing: -90%   
+
+
+These states have the lowest profit margins, and due to their relatively high sales volumes, they result in significant overall profit losses.
  
   ![Lowest Profit States](<Graphs/Lowest Profit States.png>)
 
 ### States Strong Margin but Low Sales:
 
-- Nevada, Maryland, District of Columbia, South Dakota
+- District of Columbia, Maine, South Dakota
 - Despite strong profit margins, total profit remains low due to limited sales volume
   
   ![GoodMarginBadTotalProfit](Graphs/GoodMarginBadTotalProfit.png)
@@ -183,7 +183,7 @@ This dataset is widely used for sales analytics and dashboarding practice, offer
   ![Sales Quantity by Discount](<Graphs/Sales Quantity by Discount.png>)
 - The largest profit declines from discounting come from Tables, Bookcases, Machines, and especially Binders
   
-- Sales spike from August to December over 2014 and 2017
+- Sales consistently show a significant upward trend from August to December in both 2014 and 2017, indicating a strong seasonal pattern likely driven by end-of-year demand, holidays, and promotional periods.
   ![Sales Quantity trend](<Graphs/Sales Quantity trend.png>)
 
 ### 💡 Recommendations:

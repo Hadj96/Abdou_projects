@@ -2,12 +2,14 @@ USE EC;
 DESC superstore;
 SELECT * FROM superstore;
 
+
 -- This select will help us easily write a consult about null values
 
 SELECT CONCAT('`', COLUMN_NAME, '` IS NULL OR ', 'TRIM(','`',COLUMN_NAME, '`',')','` = \'\'', 'OR') AS '`COL_NAME` IS NULL OR TRIM(`COL_NAME`)` = ''OR'
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'superstore';
 
+-- Finding NULL values
 SELECT *
 FROM superstore
 WHERE `Category` IS NULL OR TRIM(`Category`) = ''
@@ -36,8 +38,6 @@ WHERE `Category` IS NULL OR TRIM(`Category`) = ''
    
    -- Date fromating
 		-- First we Update to set in a recognizable format
-   select * from superstore;
-   DESC superstore;
    
    UPDATE superstore
    SET `order date` = date_format(str_to_date(`order date`, '%m/%d/%Y'), '%d-%m-%Y'),
@@ -52,14 +52,23 @@ WHERE `Category` IS NULL OR TRIM(`Category`) = ''
     
 -- We will now create the tables to put the values on
 SELECT * FROM customers;
+
 -- Create Customers Table
 CREATE TABLE Customers (
     CustomerID VARCHAR(20) PRIMARY KEY,
     CustomerName VARCHAR(100),
-    Segment VARCHAR(50),
+    Segment VARCHAR(50)
+    
+);
+
+-- Create Location Table
+CREATE TABLE Location (
+    LocationID INT AUTO_INCREMENT PRIMARY KEY,
     City VARCHAR(50),
     State VARCHAR(50),
-    `Postal Code` INT
+    Region VARCHAR(50),
+    `Postal Code` INT,
+    UNIQUE (City, State, Region, `Postal Code`) -- Prevents duplicates
 );
 
 
@@ -79,6 +88,9 @@ CREATE TABLE Orders (
     ShipMode VARCHAR(50),
     CustomerID VARCHAR(20),
     Region VARCHAR(20),
+    City VARCHAR(50),
+    State VARCHAR(50),
+    `Postal Code` INT,
     ProductID VARCHAR(20),
     Quantity INT,
     Discount DECIMAL(10, 2),
@@ -110,7 +122,7 @@ FROM superstore;
     FROM superstore;
 
 
--- Create temporary table where ill set an unique indentifier for the duplicated Product IDs
+-- Create temporary table where we will set an unique indentifier for the duplicated Product IDs
 
 CREATE TEMPORARY TABLE ProductMapping AS
 WITH Duplicate_Products AS (
@@ -157,48 +169,15 @@ FROM superstore;
 
 
 -- Orders Table
+use ec;
 
-
-INSERT INTO orders (OrderID, OrderDate, ShipDate, ShipMode, CustomerID, Region, ProductID, Quantity, Discount, Sales, Profit)
-SELECT `Order ID`, `order date`, `ship date`, `Ship Mode`, `Customer ID`, Region, `Product ID`, Quantity, Discount, Sales, Profit 
+INSERT INTO orders (OrderID, OrderDate, ShipDate, ShipMode, CustomerID, Region,City, State, `Postal Code`, ProductID, Quantity, Discount, Sales, Profit)
+SELECT `Order ID`, `order date`, `ship date`, `Ship Mode`, `Customer ID`, Region,City, State, `Postal Code`, `Product ID`, Quantity, Discount, Sales, Profit 
 FROM superstore;
 
+select * from orders;
+select count(*) from orders;
 
-SELECT COUNT(*) from products;
 
--- Max sold product per month
 
-WITH products AS (
-    SELECT 
-        p.Category, 
-        p.SubCategory, 
-        DATE_FORMAT(o.OrderDate, '%Y-%m') AS datee,
-        SUM(o.Quantity) AS MonthTotalSold
-    FROM 
-        products p
-    JOIN 
-        orders o 
-    ON 
-        o.ProductID = p.ProductID
-    GROUP BY 
-        p.Category, p.SubCategory, datee
-)
-SELECT 
-    p1.Category, 
-    p1.SubCategory, 
-    p1.datee, 
-    p1.MonthTotalSold
-FROM 
-    products p1
-JOIN (
-    SELECT 
-        datee, 
-        MAX(MonthTotalSold) AS MaxSold
-    FROM 
-        products
-    GROUP BY 
-        datee
-) p2
-ON 
-    p1.datee = p2.datee AND p1.MonthTotalSold = p2.MaxSold;
 
